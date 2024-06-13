@@ -1,0 +1,43 @@
+// C++ code
+//
+int x = 0;
+
+int z = 0;
+
+int y = 0;
+
+void setup()
+{
+  pinMode(9, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(3, INPUT);
+
+  noTone(9);
+  digitalWrite(13, LOW);
+  digitalWrite(12, LOW);
+  digitalWrite(11, LOW);
+  digitalWrite(10, LOW);
+}
+
+void loop()
+{
+  delay(1000); // Wait for 1000 millisecond(s)
+
+  if (digitalRead(3) > 1) {
+    tone(9, 5274, 5000); // play tone 100 (E8 = 5274 Hz)
+    digitalWrite(13, HIGH);
+    digitalWrite(12, HIGH);
+    digitalWrite(11, HIGH);
+    digitalWrite(10, HIGH);
+  } else {
+    delay(3000); // Wait for 3000 millisecond(s)
+    noTone(9);
+    digitalWrite(13, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(10, LOW);
+  }
+}
